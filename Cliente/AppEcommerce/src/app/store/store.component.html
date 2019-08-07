@@ -8,14 +8,14 @@
       <h1 class="my-4">Shop Name</h1>
       <div class="list-group">
           <h4>Categorías</h4>
-          <a href="#" class="list-group-item" (click)="changeCategory(null); changeScale(null); changeVendor(null)">Home</a>
-        <a href="#" class="list-group-item" [class.active]="category == selectedCategory" *ngFor="let category of categories"(click)="changeCategory(category)">{{category}}</a>
+          <a href="" class="list-group-item" (click)="changeCategory(null); changeScale(null); changeVendor(null)">Home</a>
+        <a class="list-group-item" [class.active]="category == selectedCategory" *ngFor="let category of categories"(click)="changeCategory(category)">{{category}}</a>
         <h1></h1>
         <h4>Escalas</h4>
-        <a href="#" class="list-group-item" [class.active]="scale == selectedSecale" *ngFor="let scale of scales"(click)="changeScale(scale)">{{scale}}</a>
+        <a class="list-group-item" [class.active]="scale == selectedSecale" *ngFor="let scale of scales"(click)="changeScale(scale)">{{scale}}</a>
         <h1></h1>
         <h4>Proveedores</h4>
-        <a href="#" class="list-group-item" [class.active]="vendor == selectedVendor" *ngFor="let vendor of vendors"(click)="changeVendor(vendor)">{{vendor}}</a>
+        <a class="list-group-item" [class.active]="vendor == selectedVendor" *ngFor="let vendor of vendors"(click)="changeVendor(vendor)">{{vendor}}</a>
       </div>
     </div>
     <!-- /.col-lg-3 -->
@@ -50,7 +50,7 @@
       </div>
 
       <div class="row">
-
+ 
         <div class="col-lg-4 col-md-6 mb-4" *ngFor="let product of products">
           <div class="card h-100">
             <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
@@ -62,7 +62,7 @@
               <p class="card-text">{{product.productDescription | slice:0:100}}</p>
             </div>
             <div class="card-footer ">
-              <button type="button" class="btn btn-outline-info btn-sm btn-block" (click)= "cart.addLine(product); cart.recalculate()">Agregar</button>
+              <button type="button" class="btn btn-outline-info btn-sm btn-block" (click)= "addLine(product)">Agregar</button>
             </div>
           </div>
         </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductRepositoryService } from '../model/product-repository.service';
 import { Product } from '../model/product';
 import { Cart } from '../model/cart';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-store',
@@ -14,14 +15,14 @@ export class StoreComponent implements OnInit {
   public selectedPage=1;
   public selectedSecale = null;
   public selectedVendor = null;
-  constructor(private productRepoService: ProductRepositoryService, public cart: Cart) { }
+  constructor(private productRepoService: ProductRepositoryService, private cart: Cart, private router: Router) { }
 
   ngOnInit() {
    // console.log(this.productRepoService.getProducts());
   }
 
   get products():Product[]{
-    const pageIndex =(this.selectedPage-1)*this.productsperPage;
+    const pageIndex =(this.selectedPage-1)*this.productsperPage
     return this.productRepoService.getProducts(this.selectedCategory,this.selectedSecale,this.selectedVendor)
     .slice(pageIndex, pageIndex+this.productsperPage);
   }
@@ -66,4 +67,11 @@ export class StoreComponent implements OnInit {
     this.selectedPage = 1;
     this.selectedVendor = newVendor;
   }
+
+  //////////////////////////////Cart///////////////////////////////////
+
+  addLine(product: Product){
+    this.cart.addLine(product);
+  }
+
 }
