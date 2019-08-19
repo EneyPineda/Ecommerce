@@ -1,0 +1,34 @@
+<app-nav></app-nav>
+<div class="container">
+  <section>
+    <h2>ORDER DETAILS</h2>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th>Order Number</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Comments</th>
+            <th>Customer Number</th>
+            <th>Product Code</th>
+            <th>Quantity Ordered</th>
+            <th>Order Line</th>
+            <th>Price Each</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders">
+            <td>{{order.orderNumber}}</td>
+            <td>{{order.orderDate}}</td>
+            <td>{{order.status}}</td>
+            <td>{{order.comments}}</td>
+            <td>{{order.customerNumber}}</td>
+            <td>{{order.productCode}}</td>
+            <td>{{order.quantityOrdered}}</td>
+            <td>{{order.orderLineNumber}}</td>
+            <td>{{order.priceEach}}</td>
+          </tr>
+        </tbody>
+      </table>
+  </section>
+  </div>

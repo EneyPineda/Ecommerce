@@ -3,7 +3,6 @@
 
     class ProductsController extends Controllers {
         function selectProducts($request, $response){
-            
             $message = $this->ProductsModel->selectProducts();
             return json_encode($message);
         }
